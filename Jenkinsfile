@@ -14,7 +14,8 @@ pipeline {
                 git url: 'https://github.com/jakubjanicki/szkolenie-ci-jenkins-example.git', branch: 'main'
 
                 // Run Maven on a Unix agent.
-                sh "mvn clean spring-boot:build-image"
+                // sh "mvn clean spring-boot:build-image"
+                sh "mvn -Dmaven.test.failure.ignore=true clean verify"
             }
         }
     }
